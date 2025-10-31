@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Set Builder UI</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="intro">
+        <h1>Interactive Set Builder</h1>
+        <p>
+          Use this simple UI to build a mathematical set. Add values one by one or
+          paste a list of items. Duplicate values are ignored automatically, so
+          you always get a set of unique elements.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Add individual values</h2>
+        <form id="single-input" class="input-row" autocomplete="off">
+          <label class="sr-only" for="single-value">Value to add</label>
+          <input
+            id="single-value"
+            type="text"
+            placeholder="Type a value and press Enter"
+            required
+          />
+          <button type="submit">Add</button>
+        </form>
+        <p class="hint">Press Enter or click "Add" to insert the value.</p>
+      </section>
+
+      <section class="card">
+        <h2>Bulk add values</h2>
+        <form id="bulk-input" class="bulk-form">
+          <label for="bulk-values">Paste values separated by commas or new lines.</label>
+          <textarea
+            id="bulk-values"
+            rows="4"
+            placeholder="apple, banana, orange"
+          ></textarea>
+          <button type="submit">Add All</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Your set</h2>
+        <div id="empty-state" class="empty">No values yet. Start adding!</div>
+        <ul id="set-items" class="chip-list" aria-live="polite"></ul>
+        <div class="actions">
+          <button id="clear-set" type="button" class="secondary">Clear set</button>
+          <button id="copy-set" type="button" class="secondary">Copy set literal</button>
+        </div>
+        <output id="set-output" class="set-output" aria-live="polite"></output>
+      </section>
+    </main>
+
+    <template id="chip-template">
+      <li class="chip" role="listitem">
+        <span class="chip-label"></span>
+        <button type="button" class="chip-remove" aria-label="Remove value">×</button>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
