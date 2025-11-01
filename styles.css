@@ -132,6 +132,48 @@ button.secondary {
   gap: 0.75rem;
 }
 
+.ai-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.ai-actions button {
+  flex: none;
+}
+
+.ai-actions button.secondary {
+  min-width: 120px;
+}
+
+.status-message {
+  font-size: 0.95rem;
+  color: #4b5563;
+  min-height: 1.2em;
+}
+
+@media (prefers-color-scheme: dark) {
+  .status-message {
+    color: #9ca3af;
+  }
+
+  .status-message[data-state="success"] {
+    color: #4ade80;
+  }
+
+  .status-message[data-state="error"] {
+    color: #f87171;
+  }
+}
+
+.status-message[data-state="success"] {
+  color: #15803d;
+}
+
+.status-message[data-state="error"] {
+  color: #dc2626;
+}
+
 .chip-list {
   display: flex;
   flex-wrap: wrap;
