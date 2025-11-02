@@ -46,6 +46,30 @@
       </section>
 
       <section class="card">
+        <h2>Generate a set with AI</h2>
+        <form id="ai-input" class="bulk-form" autocomplete="off">
+          <label for="ai-prompt">Describe the collection you need and let the assistant expand it.</label>
+          <textarea
+            id="ai-prompt"
+            rows="3"
+            placeholder="PPE kit for a hospital emergency department"
+            required
+          ></textarea>
+          <div class="ai-actions">
+            <button type="submit">Ask assistant</button>
+            <button id="ai-cancel" type="button" class="secondary" hidden>Cancel</button>
+          </div>
+        </form>
+        <p
+          id="ai-status"
+          class="status-message"
+          role="status"
+          aria-live="polite"
+          hidden
+        ></p>
+      </section>
+
+      <section class="card">
         <h2>Your set</h2>
         <div id="empty-state" class="empty">No values yet. Start adding!</div>
         <ul id="set-items" class="chip-list" aria-live="polite"></ul>
