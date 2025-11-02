@@ -6,22 +6,26 @@ removable chips, and copy the resulting set literal to your clipboard.
 
 ## Getting started
 
-The UI can still be opened directly by loading `index.html` in your browser, but
-to use the AI-assisted set builder you need to run the Node.js backend.
+You can still open `index.html` directly in your browser for the basic set
+builder, but to use the AI assistant you now run a small Python backend. The
+server hosts the static files and exposes the JSON API consumed by the UI.
 
 ```bash
-npm install
-npm start
+python -m venv .venv
+source .venv/bin/activate  # On Windows use `.venv\\Scripts\\activate`
+pip install -r requirements.txt
+python server.py
 ```
 
-By default the server runs on <http://localhost:3000> and serves the same UI
+By default the server runs on <http://localhost:5000> and serves the same UI
 alongside a JSON API at `POST /api/build-set`.
 
 ### Connecting to an LLM
 
 The backend can proxy your prompt to OpenAI's Chat Completions API when the
-following environment variables are defined (for example by creating a `.env`
-file):
+following environment variables are defined. You can export them directly or
+store them in a `.env` file in this directory—the server loads it automatically
+on startup.
 
 ```
 OPENAI_API_KEY=sk-...
